@@ -29,6 +29,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+TEMPLATE_LOADERS = [
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader'
+]
 
 # Application definition
 
@@ -57,7 +61,7 @@ ROOT_URLCONF = 'mytweets.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR + '/templates/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
