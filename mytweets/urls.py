@@ -15,12 +15,17 @@ Including another URLconf
 """
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from tweets.views import Index
+from tweets.views import Index, Profile
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^$', Index.as_view()),
+    url(r'^user/(\w+)/$', Profile.as_view()),
     url(r'^admin/', include(admin.site.urls)),
 )
+
+urlpatterns += staticfiles_urlpatterns()
+
 
